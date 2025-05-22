@@ -1,3 +1,5 @@
+#docker_commands
+
 docker network create mongo-network
 
 docker run -d -p27017:27017 --name mongo --network mongo-network -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=pass mongo
