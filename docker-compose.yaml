@@ -9,8 +9,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: pass
     networks:
       - mongo-network
-    volumes:
-      - /home/ubuntu/mongo:/data/db
 
   mongo-express:
     image: mongo-express
