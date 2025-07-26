@@ -14,7 +14,7 @@ pipeline {
         stage ("Build") {
             steps {
                 echo "Building the Docker image"
-                sh "docker build -t nodejs-login-app:latest ."
+                sh "docker build -t kiran700/nodejs-login-app:latest ."
                 echo "Build successful"
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         
         stage('Push Docker Image') {
             steps {
-                sh 'docker push nodejs-login-app:latest'
+                sh 'docker push kiran700/nodejs-login-app:latest'
             }
         }
 
