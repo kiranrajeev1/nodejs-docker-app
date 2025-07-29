@@ -9,8 +9,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: pass
     networks:
       - mongo-network
-    volumes:
-      - /home/ubuntu/mongo:/data/db
 
   mongo-express:
     image: mongo-express
@@ -27,7 +25,7 @@ services:
       - mongo
 
   node-app:
-    build: .
+    image: kiran700/nodejs-login-app:latest
     container_name: node-app
     ports:
       - "3000:3000"
