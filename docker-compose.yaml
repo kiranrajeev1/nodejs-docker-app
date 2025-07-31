@@ -25,7 +25,7 @@ services:
       - mongo
 
   node-app:
-    image: kiran700/nodejs-login-app:latest
+    image: kiran700/nodejs-login-app:${APP_VERSION:-latest}
     container_name: node-app
     ports:
       - "3000:3000"
