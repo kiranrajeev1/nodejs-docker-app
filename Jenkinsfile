@@ -6,7 +6,7 @@ pipeline {
         stage ("Clone") {
             steps {
                 echo "Cloning the code"
-                git url: 'https://github.com/kiranrajeev1/nodejs-docker-app.git', branch: 'test'
+                git url: 'https://github.com/kiranrajeev1/nodejs-docker-app.git', branch: 'main'
                 echo "Cloning successful"
             }
         }
