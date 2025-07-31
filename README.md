@@ -9,8 +9,5 @@ docker run -d -p8081:8081 --name mongo-express --network mongo-network -e ME_CON
 docker run -d --name node-app --network mongo-network -p 3000:3000 docker-testapp
 
 hello 
-this 
-is 
-a 
-nodejs 
-app
+---
+this is a nodejs app
