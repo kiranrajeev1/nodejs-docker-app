@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        DOCKERHUB_CREDENTIALS_ID = 'dockerhub-creds'
+        DOCKERHUB_USERNAME       = 'kiran700'
+        IMAGE_NAME               = 'nodejs-login-app'
+    }
+    
     stages {
         
         stage ("Clone") {
@@ -14,13 +20,14 @@ pipeline {
         stage ("Build") {
             steps {
                 echo "Building the Docker image"
-                sh "docker build -t kiran700/nodejs-login-app:latest ."
+                sh "docker build -t ${DOCKERHUB_USERNAME}/${IMAGE_NAME}latest ."
                 echo "Build successful"
             }
         }
         
         stage('Docker Login') {
             steps {
+                echo "Logging in"
                 withCredentials([usernamePassword(
                     credentialsId: 'dockerhub-creds', 
                     usernameVariable: 'DOCKER_USER', 
@@ -33,7 +40,9 @@ pipeline {
         
         stage('Push Docker Image') {
             steps {
-                sh 'docker push kiran700/nodejs-login-app:latest'
+                echo "Pushing image to dockerhub"
+                sh 'docker push ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:latest'
+                echo "Push successful"
             }
         }
 
