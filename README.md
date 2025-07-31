@@ -66,7 +66,7 @@ This setup ensures that any change pushed to the GitHub repository is automatica
 
 ---
 
-### docker_commands
+### Docker Commands
 
 ```bash
 docker network create mongo-network
