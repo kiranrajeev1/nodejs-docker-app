@@ -49,7 +49,8 @@ pipeline {
         stage ("Deploy") {
             steps {
                 echo "Deploying the application"
-                sh "docker-compose up -d"
+                sh "APP_VERSION=${env.BUILD_NUMBER} docker-compose up -d"
+                echo "Deployment successful app running at port 3000"
             }
         }
 
