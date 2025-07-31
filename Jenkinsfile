@@ -20,7 +20,7 @@ pipeline {
         stage ("Build") {
             steps {
                 echo "Building the Docker image"
-                sh "docker build -t ${DOCKERHUB_USERNAME}/${IMAGE_NAME}latest ."
+                sh "docker build -t ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${env.BUILD_NUMBER} ."
                 echo "Build successful"
             }
         }
@@ -41,7 +41,7 @@ pipeline {
         stage('Push Docker Image') {
             steps {
                 echo "Pushing image to dockerhub"
-                sh 'docker push ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:latest'
+                sh "docker push ${DOCKERHUB_USERNAME}/${IMAGE_NAME}:${env.BUILD_NUMBER}"
                 echo "Push successful"
             }
         }
